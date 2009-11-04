@@ -1,13 +1,37 @@
 = jerreb
 
-Description goes here.
+Sick of the complexity of other testing librairies ? Want to use your Ruby skills while writing your tests ? Want to describe your behaviour fast ? Use Jerreb.
+
+== Preamble
+
+I'm a beginner in Ruby. I don't code very well. That doesn't mean I shouldn't create my own projects, but be warned that I just code for fun, and during holidays (I'm in high school).
+
+However, I wanted to code my own testing library, because none of them could really make me happy. I wanted a fast one (as in coding). I wanted one for small projects, because that's what I do most of the time.
+
+== Example
+
+    class ExampleTest < Jerreb
+      setup { Example.new }
+      he 'is an example' {object.kind_of?(Example)}
+      # Jerreb simply tests if the block returns true or false. object is an alias for what setup returns.
+      
+      she.kind_of?(Example)
+      # Alias for the previous example. Generates: 'The object kind of Example'.
+      
+      his.name 'is one' {object == 'one'}
+      # object is now what the 'name' method of what setup returns returns.
+      
+      her.name == 'one'
+      # Alias for the previous example. Generates: "The name of the objects == 'one'"       
+    end
+    ExampleTest.run
 
 == Note on Patches/Pull Requests
  
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
+  future version unintentionally (and you know which library to use...).
 * Commit, do not mess with rakefile, version, or history.
   (if you want to have your own version, that is fine but
    bump version in a commit by itself I can ignore when I pull)
